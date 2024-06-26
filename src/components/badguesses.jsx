@@ -1,4 +1,4 @@
-function badGuess() {
+function BadGuess() {
     return (
         <div>
             <h3>Bad Guess</h3>
@@ -9,5 +9,5 @@ function badGuess() {
 }
 
 
-export default badGuess;
+export default BadGuess;
 

@@ -1,4 +1,4 @@
-function inputForm() {
+function InputForm() {
     return (
         <div>
             <h3>Input Form</h3>
@@ -9,5 +9,5 @@ function inputForm() {
 }
 
 
-export default inputForm;
+export default InputForm;
 
