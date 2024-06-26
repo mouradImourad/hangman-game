@@ -1,13 +1,15 @@
-*App{
 
-text-align: center;
-margin-top: 50px;
-
+/* underline and hiding the letters in the span element */
+.text {
+  font-size: 24px;
+  text-decoration: underline;
+  text-decoration-color: black;
+  margin-left: 16px;
 }
+/* 
+.show-text {
+} */
 
- 
-input{
-
-  margin: 10px;
-
-} 
+.hide-text {
+  color: transparent;
+}

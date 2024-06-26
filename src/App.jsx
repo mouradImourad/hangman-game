@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
-import { useState } from 'react'
+import { useEffect, useState  } from 'react'
+// import { useState } from 'react'
 import './App.css'
 import words from "./data/words.json"
 import BadGuess from './components/badguesses'
@@ -9,6 +9,7 @@ import BuzzelWordGuess from './components/buzzelwordgusses'
 
 // to do :
 // 1- buzzelwordgusses component
+// --> after creating this component,let us make it real,
 // 2- inputform
 // 3- badguesses
 
@@ -31,7 +32,7 @@ function App() {
 
       <h1>HANGMAN</h1>
       <p>{buzzle}</p> 
-      <BuzzelWordGuess/>
+      <BuzzelWordGuess buzzle={buzzle} />
       <InputForm/>
       <BadGuess/>
 
