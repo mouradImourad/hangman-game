@@ -5,21 +5,21 @@
 // what i actually want is controle over showing each letter
 // we mainly want to use letter, so we will convert the buzzle into letters, that we need to use 
 
-
-
-
-function BuzzelWordGuess({buzzle}) {
+// TO DO : use guessedLetters to show letters were guessed and hide the ones that were not work.
+// ** guessedLetters passed
+function BuzzelWordGuess({buzzle, guessedletters}) {
     // const letters = buzzle.split('');
     // const letters = buzzle.split('').map(l => {l});
     // const letters = buzzle.split('').map(l => ({char: l, show: true}));
-    const letters = buzzle.split('').map(l => ({char: l, show: false}));
+    // const letters = buzzle.split('').map(l => ({char: l, show: false}));
+    const letters = buzzle.split('').map(l => ({char: l, show: guessedletters.includes(l.toLowerCase())}));
     // Mapping over the array: The map() function is then used to transform each character of the array. 
     // Each character l is converted into an object with two properties:
     // char: This holds the actual character.
     // show: This is a boolean value initially set to true.
     // [{char: 'h', show: true}]
 
-
+    console.log(guessedletters) // --> make sure no typo and code is fine 
     console.log(letters)
     return (
         <div>

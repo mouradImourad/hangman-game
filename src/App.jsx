@@ -14,7 +14,11 @@ import BuzzelWordGuess from './components/buzzelwordgusses'
 // 3- badguesses
 
 function App() {
-  const [buzzle, setBuzzle] = useState("") // we can leave it empty or null by default 
+  //back to read me, secend requirement, i need to have guess letters,
+  // so we will create the second component state for the guessed letter
+  const [guessedLetters, setGuesedLetters] = useState([]);// empty array, the initial state when we start the game 
+  // now guessedLetters will be passed into a prop in buzzleWordGuess
+  const [buzzle, setBuzzle] = useState(""); // we can leave it empty or null by default 
   // it is better to make it same type, so js return empty string as false so we can check
   // if the buzzle word has been created or not
   console.log("possible words", words);
@@ -32,7 +36,8 @@ function App() {
 
       <h1>HANGMAN</h1>
       <p>{buzzle}</p> 
-      <BuzzelWordGuess buzzle={buzzle} />
+      <BuzzelWordGuess buzzle={buzzle} guessedletters={guessedLetters} />  
+      {/* we added here prop "buzzle" to pass a data from a parent component in the component hierarchy. */}
       <InputForm/>
       <BadGuess/>
 

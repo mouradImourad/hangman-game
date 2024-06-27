@@ -13,3 +13,6 @@
 .hide-text {
   color: transparent;
 }
+/* .hide-text {
+  visibility: hidden;
+} */
