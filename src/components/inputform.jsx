@@ -19,14 +19,15 @@
 //     // Redirect user to another page after successful submission
 //     history.push('/success');
 //   };
-  
+
 import { useState } from "react";
-function InputForm() {
+function InputForm({handledGuessedLetter}) {
     const [inputField, setInputField] = useState("")
     const handleSubmit = (e) => {
         console.log('click') // --> to check if the button work, clicking work and it consol.log 'click' every time you press on the button.
         e.preventDefault();   // *** setInputField("") instead i will e.preventDefault(e)
         setInputField("")
+        handledGuessedLetter(inputField)
     };
     console.log(inputField)
     const handleInputFieldChange = (e) => {

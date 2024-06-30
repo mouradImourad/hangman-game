@@ -12,7 +12,11 @@ function BuzzelWordGuess({buzzle, guessedletters}) {
     // const letters = buzzle.split('').map(l => {l});
     // const letters = buzzle.split('').map(l => ({char: l, show: true}));
     // const letters = buzzle.split('').map(l => ({char: l, show: false}));
-    const letters = buzzle.split('').map(l => ({char: l, show: guessedletters.includes(l.toLowerCase())}));
+    // const letters = buzzle.split('').map(l => ({char: l, show: false}));
+    const letters = buzzle.split('').map((char) => ({
+        char,
+        show: guessedletters.includes(char)
+    }));
     // Mapping over the array: The map() function is then used to transform each character of the array. 
     // Each character l is converted into an object with two properties:
     // char: This holds the actual character.

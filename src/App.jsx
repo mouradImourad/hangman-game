@@ -31,6 +31,11 @@ function App() {
       console.log("word to guess:", wordToGuess);
       setBuzzle(wordToGuess);
     }, []);
+  const handelGuessedLetter = (guess) => {
+    setGuesedLetters([...guessedLetters, guess])
+
+    console.log(guessedLetters)
+  }
   return (
     <>
 
@@ -38,7 +43,7 @@ function App() {
       <p>{buzzle}</p> 
       <BuzzelWordGuess buzzle={buzzle} guessedletters={guessedLetters} />  
       {/* we added here prop "buzzle" to pass a data from a parent component in the component hierarchy. */}
-      <InputForm/>
+      <InputForm handledGuessedLetter={handelGuessedLetter}/>
       <BadGuess/>
 
     </>
