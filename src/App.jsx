@@ -14,6 +14,7 @@ import BuzzelWordGuess from './components/buzzelwordgusses'
 // 3- badguesses
 
 function App() {
+  const [badGuesses, setBadGuesses] = useState([]); // track bad guesses
   //back to read me, secend requirement, i need to have guess letters,
   // so we will create the second component state for the guessed letter
   const [guessedLetters, setGuesedLetters] = useState([]);// empty array, the initial state when we start the game 
@@ -31,10 +32,35 @@ function App() {
       console.log("word to guess:", wordToGuess);
       setBuzzle(wordToGuess);
     }, []);
-  const handelGuessedLetter = (guess) => {
-    setGuesedLetters([...guessedLetters, guess])
+  const handleGuessedLetter = (guess) => {
+      // Helper function to check if an array contains a letter
+  const contains = (array, letter) => {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] === letter) {
+        return true;
+      }
+    }
+    return false;
+  };
 
-    console.log(guessedLetters)
+  // Check if the letter has already been guessed
+  if (contains(guessedLetters, guess) || contains(badGuesses, guess)) {
+    alert('You already guessed that letter!');
+    return;
+  }
+
+  // Add the guessed letter to the appropriate array
+  if (contains(buzzle.split(''), guess)) {
+    setGuesedLetters([...guessedLetters, guess]);
+  } else {
+    const newBadGuesses = [...badGuesses, guess];
+    setBadGuesses(newBadGuesses);
+
+    // Check if the player has made 6 or more bad guesses
+    if (newBadGuesses.length >= 6) {
+      alert('Game Over!');
+    }
+  }
   }
   return (
     <>
@@ -43,8 +69,8 @@ function App() {
       <p>{buzzle}</p> 
       <BuzzelWordGuess buzzle={buzzle} guessedletters={guessedLetters} />  
       {/* we added here prop "buzzle" to pass a data from a parent component in the component hierarchy. */}
-      <InputForm handledGuessedLetter={handelGuessedLetter}/>
-      <BadGuess/>
+      <InputForm handleGuessedLetter={handleGuessedLetter}/>
+      <BadGuess badGuesses={badGuesses}/>
 
     </>
   )
