@@ -8,15 +8,25 @@
 // then hook it up to the input field using the onChange attribute 
 // then in the handleInputFieldChange i will setInputField to event.target.value
 // then console.log(inputField) to make sure the component state is hooked up right
-// now in fact that input field updating its own react component state that we have created for
+// now in fact that input field updating its own react component state 
 // this button's job is going to be able to send that letter guess somewhere else 
+//import { useHistory } from 'react-router-dom';
 
+// const handleSubmit = (e) => {
+//     e.preventDefault();
+//     // Perform any necessary form data handling or validation
+  
+//     // Redirect user to another page after successful submission
+//     history.push('/success');
+//   };
+  
 import { useState } from "react";
 function InputForm() {
     const [inputField, setInputField] = useState("")
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         console.log('click') // --> to check if the button work, clicking work and it consol.log 'click' every time you press on the button.
-        setInputField();   // ***
+        e.preventDefault();   // *** setInputField("") instead i will e.preventDefault(e)
+        setInputField("")
     };
     console.log(inputField)
     const handleInputFieldChange = (e) => {
@@ -28,7 +38,7 @@ function InputForm() {
         <div>
             <h3>input form</h3>
             <input onChange={handleInputFieldChange} value={inputField}  placeholder="Guess A Letter"></input>  
-            <button onClick={(handleSubmit)}>Submit Guess</button>
+            <button onClick={handleSubmit}>Submit Guess</button>
         </div>
 
 
